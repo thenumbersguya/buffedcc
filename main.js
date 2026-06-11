@@ -16594,21 +16594,21 @@ Game.Launch=function()
 			
 			//handle milk and milk accessories
 			Game.milkProgress=Game.AchievementsOwned/25;
-			if (Game.milkProgress>=0.5) Game.Unlock('Kitten helpers');
-			if (Game.milkProgress>=1) Game.Unlock('Kitten workers');
-			if (Game.milkProgress>=2) Game.Unlock('Kitten engineers');
-			if (Game.milkProgress>=3) Game.Unlock('Kitten overseers');
-			if (Game.milkProgress>=4) Game.Unlock('Kitten managers');
-			if (Game.milkProgress>=5) Game.Unlock('Kitten accountants');
-			if (Game.milkProgress>=6) Game.Unlock('Kitten specialists');
-			if (Game.milkProgress>=7) Game.Unlock('Kitten experts');
-			if (Game.milkProgress>=8) Game.Unlock('Kitten consultants');
-			if (Game.milkProgress>=9) Game.Unlock('Kitten assistants to the regional manager');
-			if (Game.milkProgress>=10) Game.Unlock('Kitten marketeers');
-			if (Game.milkProgress>=11) Game.Unlock('Kitten analysts');
-			if (Game.milkProgress>=12) Game.Unlock('Kitten executives');
-			if (Game.milkProgress>=13) Game.Unlock('Kitten admins');
-			if (Game.milkProgress>=14) Game.Unlock('Kitten strategists');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten helpers');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten workers');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten engineers');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten overseers');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten managers');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten accountants');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten specialists');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten experts');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten consultants');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten assistants to the regional manager');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten marketeers');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten analysts');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten executives');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten admins');
+			if (Game.milkProgress>=0) Game.Unlock('Kitten strategists');
 			Game.milkH=Math.min(1,Game.milkProgress)*0.35;
 			Game.milkHd+=(Game.milkH-Game.milkHd)*0.02;
 			
@@ -16705,7 +16705,7 @@ Game.Launch=function()
 			/*=====================================================================================
 			UNLOCKING STUFF
 			=======================================================================================*/
-			if (Game.T%(Game.fps)==0 && Math.random()<1/1000000) Game.Win('Just plain lucky');//1 chance in 1,000,000 every second achievement
+			if (Game.T%(Game.fps)==0 && Math.random()<1/1) Game.Win('Just plain lucky');//1 chance in 1,000,000 every second achievement
 			if (Game.T%(Game.fps*5)==0 && Game.ObjectsById.length>0)//check some achievements and upgrades
 			{
 				if (isNaN(Game.cookies)) {Game.cookies=0;Game.cookiesEarned=0;Game.recalculateGains=1;}
@@ -16713,17 +16713,17 @@ Game.Launch=function()
 				var timePlayed=new Date();
 				timePlayed.setTime(Date.now()-Game.startDate);
 				
-				if (!Game.fullDate || (Date.now()-Game.fullDate)>=365*24*60*60*1000) Game.Win('So much to do so much to see');
+				if (!Game.fullDate || (Date.now()-Game.fullDate)>=0) Game.Win('So much to do so much to see');
 				
-				if (Game.cookiesEarned>=1000000 && (Game.ascensionMode==1 || Game.resets==0))//challenge run or hasn't ascended yet
+				if (Game.cookiesEarned>=0 && (Game.ascensionMode==1 || Game.resets==0))//challenge run or hasn't ascended yet
 				{
-					if (timePlayed<=1000*60*35) Game.Win('Speed baking I');
-					if (timePlayed<=1000*60*25) Game.Win('Speed baking II');
-					if (timePlayed<=1000*60*15) Game.Win('Speed baking III');
+					if (timePlayed<=1000*600*35) Game.Win('Speed baking I');
+					if (timePlayed<=1000*6000*25) Game.Win('Speed baking II');
+					if (timePlayed<=1000*60000*15) Game.Win('Speed baking III');
 					
-					if (Game.cookieClicks<=15) Game.Win('Neverclick');
-					if (Game.cookieClicks<=0) Game.Win('True Neverclick');
-					if (Game.cookiesEarned>=1000000000 && Game.UpgradesOwned==0) Game.Win('Hardcore');
+					if (Game.cookieClicks<=9999999) Game.Win('Neverclick');
+					if (Game.cookieClicks<=99999999) Game.Win('True Neverclick');
+					if (Game.cookiesEarned>=0 && Game.UpgradesOwned==0) Game.Win('Hardcore');
 				}
 				
 				for (var i in Game.UnlockAt)
@@ -16754,10 +16754,10 @@ Game.Launch=function()
 					{
 						if (Game.HasUnlocked(Game.easterEggs[i])) eggs++;
 					}
-					if (eggs>=1) Game.Win('The hunt is on');
-					if (eggs>=7) Game.Win('Egging on');
-					if (eggs>=14) Game.Win('Mass Easteria');
-					if (eggs>=Game.easterEggs.length) Game.Win('Hide & seek champion');
+					if (eggs>=0) Game.Win('The hunt is on');
+					if (eggs>=0) Game.Win('Egging on');
+					if (eggs>=0) Game.Win('Mass Easteria');
+					if (eggs>=0) Game.Win('Hide & seek champion');
 				}
 				
 				if (Game.Has('Fortune cookies'))
@@ -16768,7 +16768,7 @@ Game.Launch=function()
 					{
 						if (Game.Has(list[i].name)) fortunes++;
 					}
-					if (fortunes>=list.length) Game.Win('O Fortuna');
+					if (fortunes>=0) Game.Win('O Fortuna');
 				}
 				
 				if (Game.Has('Legacy') && Game.ascensionMode!=1)
@@ -16797,76 +16797,76 @@ Game.Launch=function()
 				{
 					buildingsOwned+=Game.Objects[i].amount;
 					minAmount=Math.min(Game.Objects[i].amount,minAmount);
-					if (!Game.HasAchiev('Mathematician')) {if (Game.Objects[i].amount<Math.min(128,Math.pow(2,(Game.ObjectsById.length-Game.Objects[i].id)-1))) mathematician=0;}
-					if (!Game.HasAchiev('Base 10')) {if (Game.Objects[i].amount<(Game.ObjectsById.length-Game.Objects[i].id)*10) base10=0;}
+					if (!Game.HasAchiev('Mathematician')) {if (Game.Objects[i].amount<Math.min(128,Math.pow(2,(Game.ObjectsById.length-Game.Objects[i].id)-1))) mathematician=1;}
+					if (!Game.HasAchiev('Base 10')) {if (Game.Objects[i].amount<(Game.ObjectsById.length-Game.Objects[i].id)*10) base10=1;}
 				}
-				if (minAmount>=1) Game.Win('One with everything');
+				if (minAmount>=0) Game.Win('One with everything');
 				if (mathematician==1) Game.Win('Mathematician');
 				if (base10==1) Game.Win('Base 10');
-				if (minAmount>=100) {Game.Win('Centennial');Game.Unlock('Milk chocolate butter biscuit');}
-				if (minAmount>=150) {Game.Win('Centennial and a half');Game.Unlock('Dark chocolate butter biscuit');}
-				if (minAmount>=200) {Game.Win('Bicentennial');Game.Unlock('White chocolate butter biscuit');}
-				if (minAmount>=250) {Game.Win('Bicentennial and a half');Game.Unlock('Ruby chocolate butter biscuit');}
-				if (minAmount>=300) {Game.Win('Tricentennial');Game.Unlock('Lavender chocolate butter biscuit');}
-				if (minAmount>=350) {Game.Win('Tricentennial and a half');Game.Unlock('Synthetic chocolate green honey butter biscuit');}
-				if (minAmount>=400) {Game.Win('Quadricentennial');Game.Unlock('Royal raspberry chocolate butter biscuit');}
-				if (minAmount>=450) {Game.Win('Quadricentennial and a half');Game.Unlock('Ultra-concentrated high-energy chocolate butter biscuit');}
-				if (minAmount>=500) {Game.Win('Quincentennial');Game.Unlock('Pure pitch-black chocolate butter biscuit');}
-				if (minAmount>=550) {Game.Win('Quincentennial and a half');Game.Unlock('Cosmic chocolate butter biscuit');}
-				if (minAmount>=600) {Game.Win('Sexcentennial');Game.Unlock('Butter biscuit (with butter)');}
-				if (minAmount>=650) {Game.Win('Sexcentennial and a half');Game.Unlock('Everybutter biscuit');}
-				if (minAmount>=700) {Game.Win('Septcentennial');Game.Unlock('Personal biscuit');}
+				if (minAmount>=0) {Game.Win('Centennial');Game.Unlock('Milk chocolate butter biscuit');}
+				if (minAmount>=0) {Game.Win('Centennial and a half');Game.Unlock('Dark chocolate butter biscuit');}
+				if (minAmount>=0) {Game.Win('Bicentennial');Game.Unlock('White chocolate butter biscuit');}
+				if (minAmount>=0) {Game.Win('Bicentennial and a half');Game.Unlock('Ruby chocolate butter biscuit');}
+				if (minAmount>=0) {Game.Win('Tricentennial');Game.Unlock('Lavender chocolate butter biscuit');}
+				if (minAmount>=0) {Game.Win('Tricentennial and a half');Game.Unlock('Synthetic chocolate green honey butter biscuit');}
+				if (minAmount>=0) {Game.Win('Quadricentennial');Game.Unlock('Royal raspberry chocolate butter biscuit');}
+				if (minAmount>=0) {Game.Win('Quadricentennial and a half');Game.Unlock('Ultra-concentrated high-energy chocolate butter biscuit');}
+				if (minAmount>=0) {Game.Win('Quincentennial');Game.Unlock('Pure pitch-black chocolate butter biscuit');}
+				if (minAmount>=0) {Game.Win('Quincentennial and a half');Game.Unlock('Cosmic chocolate butter biscuit');}
+				if (minAmount>=0) {Game.Win('Sexcentennial');Game.Unlock('Butter biscuit (with butter)');}
+				if (minAmount>=0) {Game.Win('Sexcentennial and a half');Game.Unlock('Everybutter biscuit');}
+				if (minAmount>=0) {Game.Win('Septcentennial');Game.Unlock('Personal biscuit');}
 				
-				if (Game.handmadeCookies>=1000) {Game.Win('Clicktastic');Game.Unlock('Plastic mouse');}
-				if (Game.handmadeCookies>=100000) {Game.Win('Clickathlon');Game.Unlock('Iron mouse');}
-				if (Game.handmadeCookies>=10000000) {Game.Win('Clickolympics');Game.Unlock('Titanium mouse');}
-				if (Game.handmadeCookies>=1000000000) {Game.Win('Clickorama');Game.Unlock('Adamantium mouse');}
-				if (Game.handmadeCookies>=100000000000) {Game.Win('Clickasmic');Game.Unlock('Unobtainium mouse');}
-				if (Game.handmadeCookies>=10000000000000) {Game.Win('Clickageddon');Game.Unlock('Eludium mouse');}
-				if (Game.handmadeCookies>=1000000000000000) {Game.Win('Clicknarok');Game.Unlock('Wishalloy mouse');}
+				if (Game.handmadeCookies>=0) {Game.Win('Clicktastic');Game.Unlock('Plastic mouse');}
+				if (Game.handmadeCookies>=0) {Game.Win('Clickathlon');Game.Unlock('Iron mouse');}
+				if (Game.handmadeCookies>=0) {Game.Win('Clickolympics');Game.Unlock('Titanium mouse');}
+				if (Game.handmadeCookies>=0) {Game.Win('Clickorama');Game.Unlock('Adamantium mouse');}
+				if (Game.handmadeCookies>=0) {Game.Win('Clickasmic');Game.Unlock('Unobtainium mouse');}
+				if (Game.handmadeCookies>=0) {Game.Win('Clickageddon');Game.Unlock('Eludium mouse');}
+				if (Game.handmadeCookies>=0) {Game.Win('Clicknarok');Game.Unlock('Wishalloy mouse');}
 				if (Game.handmadeCookies>=100000000000000000) {Game.Win('Clickastrophe');Game.Unlock('Fantasteel mouse');}
 				if (Game.handmadeCookies>=10000000000000000000) {Game.Win('Clickataclysm');Game.Unlock('Nevercrack mouse');}
 				if (Game.handmadeCookies>=1000000000000000000000) {Game.Win('The ultimate clickdown');Game.Unlock('Armythril mouse');}
 				if (Game.handmadeCookies>=100000000000000000000000) {Game.Win('All the other kids with the pumped up clicks');Game.Unlock('Technobsidian mouse');}
 				if (Game.handmadeCookies>=10000000000000000000000000) {Game.Win('One...more...click...');Game.Unlock('Plasmarble mouse');}
-				if (Game.handmadeCookies>=1000000000000000000000000000) {Game.Win('Clickety split');Game.Unlock('Miraculite mouse');}
-				if (Game.handmadeCookies>=100000000000000000000000000000) {Game.Win('Ain\'t that a click in the head');Game.Unlock('Aetherice mouse');}
-				if (Game.handmadeCookies>=10000000000000000000000000000000) {Game.Win('What\'s not clicking');Game.Unlock('Omniplast mouse');}
+				if (Game.handmadeCookies>=0) {Game.Win('Clickety split');Game.Unlock('Miraculite mouse');}
+				if (Game.handmadeCookies>=0) {Game.Win('Ain\'t that a click in the head');Game.Unlock('Aetherice mouse');}
+				if (Game.handmadeCookies>=0) {Game.Win('What\'s not clicking');Game.Unlock('Omniplast mouse');}
 				
 				if (Game.cookiesEarned<Game.cookies) Game.Win('Cheated cookies taste awful');
 				
-				if (Game.Has('Skull cookies') && Game.Has('Ghost cookies') && Game.Has('Bat cookies') && Game.Has('Slime cookies') && Game.Has('Pumpkin cookies') && Game.Has('Eyeball cookies') && Game.Has('Spider cookies')) Game.Win('Spooky cookies');
-				if (Game.wrinklersPopped>=1) Game.Win('Itchscratcher');
-				if (Game.wrinklersPopped>=50) Game.Win('Wrinklesquisher');
-				if (Game.wrinklersPopped>=200) Game.Win('Moistburster');
+				if (Game.Has('Skull cookies') Game.Win('Spooky cookies');
+				if (Game.wrinklersPopped>=0) Game.Win('Itchscratcher');
+				if (Game.wrinklersPopped>=0) Game.Win('Wrinklesquisher');
+				if (Game.wrinklersPopped>=0) Game.Win('Moistburster');
 				
-				if (Game.cookiesEarned>=1000000 && Game.Has('How to bake your dragon')) Game.Unlock('A crumbly egg');
+				if (Game.cookiesEarned>=0 Game.Unlock('A crumbly egg');
 				
-				if (Game.cookiesEarned>=25 && Game.season=='christmas') Game.Unlock('A festive hat');
+				if (Game.cookiesEarned>=25) Game.Unlock('A festive hat');
 				if (Game.Has('Christmas tree biscuits') && Game.Has('Snowflake biscuits') && Game.Has('Snowman biscuits') && Game.Has('Holly biscuits') && Game.Has('Candy cane biscuits') && Game.Has('Bell biscuits') && Game.Has('Present biscuits')) Game.Win('Let it snow');
 				
 				if (Game.reindeerClicked>=1) Game.Win('Oh deer');
 				if (Game.reindeerClicked>=50) Game.Win('Sleigh of hand');
 				if (Game.reindeerClicked>=200) Game.Win('Reindeer sleigher');
 				
-				if (buildingsOwned>=100) Game.Win('Builder');
-				if (buildingsOwned>=500) Game.Win('Architect');
-				if (buildingsOwned>=1000) Game.Win('Engineer');
-				if (buildingsOwned>=2500) Game.Win('Lord of Constructs');
-				if (buildingsOwned>=5000) Game.Win('Grand design');
-				if (buildingsOwned>=7500) Game.Win('Ecumenopolis');
-				if (buildingsOwned>=10000) Game.Win('Myriad');
-				if (Game.UpgradesOwned>=20) Game.Win('Enhancer');
-				if (Game.UpgradesOwned>=50) Game.Win('Augmenter');
-				if (Game.UpgradesOwned>=100) Game.Win('Upgrader');
-				if (Game.UpgradesOwned>=200) Game.Win('Lord of Progress');
-				if (Game.UpgradesOwned>=300) Game.Win('The full picture');
-				if (Game.UpgradesOwned>=400) Game.Win('When there\'s nothing left to add');
-				if (Game.UpgradesOwned>=500) Game.Win('Kaizen');
-				if (Game.UpgradesOwned>=600) Game.Win('Beyond quality');
-				if (Game.UpgradesOwned>=700) Game.Win('Oft we mar what\'s well');
-				if (buildingsOwned>=4000 && Game.UpgradesOwned>=300) Game.Win('Polymath');
-				if (buildingsOwned>=8000 && Game.UpgradesOwned>=400) Game.Win('Renaissance baker');
+				if (buildingsOwned>=0) Game.Win('Builder');
+				if (buildingsOwned>=0) Game.Win('Architect');
+				if (buildingsOwned>=0) Game.Win('Engineer');
+				if (buildingsOwned>=0) Game.Win('Lord of Constructs');
+				if (buildingsOwned>=0) Game.Win('Grand design');
+				if (buildingsOwned>=0) Game.Win('Ecumenopolis');
+				if (buildingsOwned>=0) Game.Win('Myriad');
+				if (Game.UpgradesOwned>=0) Game.Win('Enhancer');
+				if (Game.UpgradesOwned>=0) Game.Win('Augmenter');
+				if (Game.UpgradesOwned>=0) Game.Win('Upgrader');
+				if (Game.UpgradesOwned>=0) Game.Win('Lord of Progress');
+				if (Game.UpgradesOwned>=0) Game.Win('The full picture');
+				if (Game.UpgradesOwned>=0) Game.Win('When there\'s nothing left to add');
+				if (Game.UpgradesOwned>=0) Game.Win('Kaizen');
+				if (Game.UpgradesOwned>=0) Game.Win('Beyond quality');
+				if (Game.UpgradesOwned>=0) Game.Win('Oft we mar what\'s well');
+				if (buildingsOwned>=0 && Game.UpgradesOwned>=0) Game.Win('Polymath');
+				if (buildingsOwned>=0 && Game.UpgradesOwned>=0) Game.Win('Renaissance baker');
 				
 				if (!Game.HasAchiev('Jellicles'))
 				{
