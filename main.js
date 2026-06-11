@@ -239,7 +239,7 @@ function rawFormatter(val){return val;}
 
 var formatLong=[' thousand',' million',' billion',' trillion',' quadrillion',' quintillion',' sextillion',' septillion',' octillion',' nonillion'];
 var prefixes=['','un','duo','tre','quattuor','quin','sex','septen','octo','novem'];
-var suffixes=['decillion','vigintillion','trigintillion','quadragintillion','quinquagintillion','sexagintillion','septuagintillion','octogintillion','nonagintillion'];
+var suffixes=['decillion','vigintillion','trigintillion','quadragintillion','quinquagintillion','sexagintillion','septuagintillion','octogintillion','nonagintillion','centillion'];
 for (var i in suffixes)
 {
 	for (var ii in prefixes)
