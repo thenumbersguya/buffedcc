@@ -43,9 +43,9 @@ M.launch=function()
 				{
 					var godLvl=Game.hasGod('ages');
 					var mult=1;
-					if (godLvl==1) mult*=0.15*Math.sin((Date.now()/1000/(60*60*3))*Math.PI*2);
-					else if (godLvl==2) mult*=0.15*Math.sin((Date.now()/1000/(60*60*12))*Math.PI*2);
-					else if (godLvl==3) mult*=0.15*Math.sin((Date.now()/1000/(60*60*24))*Math.PI*2);
+					if (godLvl==1) mult*=0.15;
+					else if (godLvl==2) mult*=0.15;
+					else if (godLvl==3) mult*=0.15;
 					return loc("Current bonus:")+' '+(mult<0?'-':'+')+Beautify(Math.abs(mult)*100,2)+'%';
 				},
 				descBefore:loc("CpS bonus fluctuating between %1 and %2 over time.",['<span class="green">+15%</span>','<span class="red">-15%</span>']),
@@ -109,13 +109,13 @@ M.launch=function()
 				icon:[22,19],
 				activeDescFunc:function()
 				{
-					if (Game.BuildingsOwned%10==0) return loc("Buildings owned:")+' '+Beautify(Game.BuildingsOwned)+'<br>'+loc("Effect is active.");
+					if (Game.BuildingsOwned%1==0) return loc("Buildings owned:")+' '+Beautify(Game.BuildingsOwned)+'<br>'+loc("Effect is active.");
 					else return loc("Buildings owned:")+' '+Beautify(Game.BuildingsOwned)+'<br>'+loc("Effect is inactive.");
 				},
-				desc1:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*60*Game.fps))+'</span>',
-				desc2:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*40*Game.fps))+'</span>',
-				desc3:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*20*Game.fps))+'</span>',
-				descAfter:'<span class="red">'+loc("Effect is only active when your total amount of buildings ends with 0.")+'</span>',
+				desc1:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*60*15*Game.fps))+'</span>',
+				desc2:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*60*13.333333*Game.fps))+'</span>',
+				desc3:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*60*10*Game.fps))+'</span>',
+				descAfter:'<span class="red">'+loc("Effect is only active when this is slotted.")+'</span>',
 				quote:'You will find that life gets just a little bit sweeter if you can motivate this spirit with tidy numbers and properly-filled tax returns.',
 			},
 		};
@@ -132,7 +132,7 @@ M.launch=function()
 			'Diamond','Ruby','Jade'
 		];
 		
-		M.swaps=3;//swaps left
+		M.swaps=100;//swaps left
 		M.swapT=Date.now();//the last time we swapped
 		
 		M.lastSwapT=0;//frames since last swap
